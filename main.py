@@ -3,7 +3,7 @@
 import sys
 from random import choice, choices
 from collections import defaultdict
-from typing import DefaultDict, Dict, Tuple, Optional
+from typing import DefaultDict, Dict, Optional
 
 
 def calculcate_n_gram_count(input_text: str, n: int) -> DefaultDict[str, int]:
@@ -16,15 +16,15 @@ def calculcate_n_gram_count(input_text: str, n: int) -> DefaultDict[str, int]:
     return n_gram_count
 
 
-def calculate_n_order_markov_source(input_text: str, order: int) -> Dict[Tuple[str, str], float]:
+def calculate_n_order_markov_source(input_text: str, order: int) -> DefaultDict[str, Dict[str, float]]:
     n_gram_count = calculcate_n_gram_count(input_text, order + 1)
     n_1_gram_count = calculcate_n_gram_count(input_text, order)
 
-    probabilities = {}
+    probabilities = defaultdict(dict)
     for token in n_gram_count:
         probability = n_gram_count[token] / n_1_gram_count[token[:-1]]
         letter, predecessor = token[-1], token[:-1]
-        probabilities[(predecessor, letter)] = probability
+        probabilities[predecessor][letter] = probability
 
     return probabilities
 
@@ -35,19 +35,22 @@ def save_text_to_file(text: str, file_path: str) -> None:
 
 
 def generate_text(
-    probabilities: Dict[Tuple[str, str], float],
+    probabilities: DefaultDict[str, Dict[str, float]],
     length: int,
     first_token: Optional[str] = None,
 ) -> str:
     if first_token is None:
-        first_token = choice(tuple(probabilities.keys()))[0]
+        first_token = choice(tuple(probabilities.keys()))
 
     text = first_token
-    predecessor_length = len(tuple(probabilities.keys())[0][0])
+    predecessor_length = len(tuple(probabilities.keys())[0])
+
+    if len(first_token) < predecessor_length:
+        raise RuntimeError(f'First token is too short! Minimum length: {predecessor_length}')
 
     while len(text) < length:
         predecessor = text[-predecessor_length:]
-        possibilities = {k[1]: v for k, v in probabilities.items() if k[0] == predecessor}
+        possibilities = probabilities[predecessor]
         random_letter = choices(tuple(possibilities.keys()), tuple(possibilities.values()))[0]
         text += random_letter
 
@@ -63,7 +66,7 @@ def calculate_average_word_length(text: str) -> float:
 def main() -> None:
     if len(sys.argv) != 6:
         print(f'Usage: {sys.argv[0]} <input_file> <text_length> <output_file1> <output_file2> <output_file3>')
-        print(f'Example: {sys.argv[0]} input.txt 1000 output1.txt output2.txt output3.txt')
+        print(f'Example: {sys.argv[0]} input.txt 100000 output1.txt output2.txt output3.txt')
         sys.exit(1)
 
     with open(sys.argv[1], 'r') as input_file:
