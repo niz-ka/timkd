@@ -43,6 +43,10 @@ def generate_text(
     if first_token is None:
         first_token = choice(tuple(probabilities.keys()))
 
+    if first_token not in probabilities.keys():
+        raise RuntimeError(f'First tokens: {first_token} not found in input file. ' +
+                           'Change input file (to norm_wiki_sample.txt) or first tokens!')
+
     text = []
     text.extend(first_token)
     predecessor_length = len(tuple(probabilities.keys())[0])
@@ -69,6 +73,7 @@ def main() -> None:
     if len(sys.argv) != 6:
         print(f'Usage: {sys.argv[0]} <input_file> <text_length> <output_file1> <output_file2> <output_file3>')
         print(f'Example: {sys.argv[0]} input.txt 100000 output1.txt output2.txt output3.txt')
+        print('WARNING: I recommend using norm_wiki_sample.txt in order to avoid many problems')
         sys.exit(1)
 
     with open(sys.argv[1], 'r') as input_file:
@@ -77,7 +82,7 @@ def main() -> None:
     run_options = (
         (1, None, sys.argv[3]),
         (2, None, sys.argv[4]),
-        (3, None, sys.argv[5]),
+        (3, ('probability', 'that', 'the'), sys.argv[5]),
     )
 
     text_length = int(sys.argv[2])
