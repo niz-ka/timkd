@@ -1,0 +1,123 @@
+File: norm_wiki_en.txt
+----------
+Letter entropy: 4.288221453845133
+Letter conditional entropy (order 1): 3.516604933316685
+Letter conditional entropy (order 2): 3.0183193251147657
+Letter conditional entropy (order 3): 2.4815660537461874
+Letter conditional entropy (order 4): 2.021185065043691
+----------
+Word entropy: 11.543993773635416
+Word conditional entropy (order 1): 6.389175861627316
+Word conditional entropy (order 2): 2.176460456201819
+Word conditional entropy (order 3): 0.48467886887154094
+Word conditional entropy (order 4): 0.1096531537240352
+
+
+File: norm_wiki_la.txt
+----------
+Letter entropy: 4.228247465746813
+Letter conditional entropy (order 1): 3.4501261536143852
+Letter conditional entropy (order 2): 2.823492106530299
+Letter conditional entropy (order 3): 2.1520314314204265
+Letter conditional entropy (order 4): 1.6427638701364686
+----------
+Word entropy: 11.969194044355133
+Word conditional entropy (order 1): 4.400026106166727
+Word conditional entropy (order 2): 1.1668837096581777
+Word conditional entropy (order 3): 0.38803540854204
+Word conditional entropy (order 4): 0.20646889313686384
+
+
+File: sample0.txt
+----------
+Letter entropy: 4.273001240566633
+Letter conditional entropy (order 1): 2.9158942162629677
+Letter conditional entropy (order 2): 2.0003594568493464
+Letter conditional entropy (order 3): 1.5392820427984704
+Letter conditional entropy (order 4): 1.4385819746138613
+----------
+Word entropy: 7.748741386140158
+Word conditional entropy (order 1): 7.486392862851711
+Word conditional entropy (order 2): 4.406704594406155
+Word conditional entropy (order 3): 0.5950087061871917
+Word conditional entropy (order 4): 0.01206212769881263
+
+
+File: sample1.txt
+----------
+Letter entropy: 4.127006135549721
+Letter conditional entropy (order 1): 3.2391501954800406
+Letter conditional entropy (order 2): 2.8612798881409267
+Letter conditional entropy (order 3): 2.326684943904885
+Letter conditional entropy (order 4): 1.8135102123783182
+----------
+Word entropy: 11.500698483659843
+Word conditional entropy (order 1): 5.372245318605186
+Word conditional entropy (order 2): 1.5747393031025305
+Word conditional entropy (order 3): 0.5075112949819727
+Word conditional entropy (order 4): 0.29345806693802967
+
+
+File: sample2.txt
+----------
+Letter entropy: 3.993311800232584
+Letter conditional entropy (order 1): 3.050439544594746
+Letter conditional entropy (order 2): 2.4676604975534184
+Letter conditional entropy (order 3): 1.9397725879224512
+Letter conditional entropy (order 4): 1.7020328355856251
+----------
+Word entropy: 8.023869815826423
+Word conditional entropy (order 1): 7.34862444868417
+Word conditional entropy (order 2): 3.781937332780256
+Word conditional entropy (order 3): 0.8595059631118873
+Word conditional entropy (order 4): 0.08199123582449071
+
+
+File: sample3.txt
+----------
+Letter entropy: 3.930297834157987
+Letter conditional entropy (order 1): 3.1844672773090807
+Letter conditional entropy (order 2): 2.6278959197207907
+Letter conditional entropy (order 3): 2.023991698764425
+Letter conditional entropy (order 4): 1.5342435534779935
+----------
+Word entropy: 9.061119324692852
+Word conditional entropy (order 1): 5.950221966394711
+Word conditional entropy (order 2): 2.6308074182196752
+Word conditional entropy (order 3): 1.264091423924473
+Word conditional entropy (order 4): 0.41432739497180254
+
+
+File: sample4.txt
+----------
+Letter entropy: 4.2538095673790135
+Letter conditional entropy (order 1): 4.229101526820833
+Letter conditional entropy (order 2): 4.226829033749153
+Letter conditional entropy (order 3): 4.178535244136844
+Letter conditional entropy (order 4): 3.7661316118107164
+----------
+Word entropy: 17.129669110943123
+Word conditional entropy (order 1): 3.4442538962882017
+Word conditional entropy (order 2): 0.23407601703789896
+Word conditional entropy (order 3): 0.0032274276117648156
+Word conditional entropy (order 4): 7.608894145064654e-06
+
+
+File: sample5.txt
+----------
+Letter entropy: 4.441688018481797
+Letter conditional entropy (order 1): 3.523098231686726
+Letter conditional entropy (order 2): 3.2506209602496376
+Letter conditional entropy (order 3): 2.8342715912186827
+Letter conditional entropy (order 4): 2.172440895611472
+----------
+Word entropy: 16.50952760746038
+Word conditional entropy (order 1): 9.356255905249239e-07
+Word conditional entropy (order 2): 9.356262173114716e-07
+Word conditional entropy (order 3): 9.356268440988591e-07
+Word conditional entropy (order 4): 9.356274708870863e-07
+
+
+##### ODPOWIEDZI #####:
+sample0, sample1, sample2, sample3, sample4 - te pliki zawierają język naturalny, gdyż entropia warunkowa maleje wraz z rzędem
+sample5 - ten plik nie zawiera języka naturalnego, gdyż entropia jest stała - kolejne wyrazy nie dają nam żadnej informacji
